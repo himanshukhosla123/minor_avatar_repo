@@ -112,7 +112,7 @@ function getData(audioFile, callback) {
 var sessionId="3be65f50329c7e42aca841b19c3fcb0d";
 var projectId="anu-bknhvv";
 var access_token="ya29.GlsvBvRcx0I1Dj43PpZ91wPppkl5dEcveIMm1OaoGexWB9JMtVYhzSCTjWeo54Pf1-NNYQsU8OXYJYhffIGvw16pBd_1fcSOJbFWOscjGSCGtH_lVbLzzTqf7gxJ";
-var key="TvG1PDNL8NZw-yK_Cs1UUpCl";
+var key="AIzaSyA5E0XSqyaQsoj2IuAjDIGDbhZCKL5Atqw";
 
 function apicall(audioBase64){
     console.log("making api call")
@@ -120,7 +120,7 @@ function apicall(audioBase64){
         url:"https://dialogflow.googleapis.com/v2/projects/"+projectId+"/agent/sessions/"+sessionId+":detectIntent?key="+key+"&alt=json",
         method:"POST",
 //        dataType: 'jsonp',
-        data:{
+        data:JSON.stringify({
 //            "inputAudio":audioBase64,
             "queryInput":{
 //                "audioConfig":{
@@ -131,7 +131,7 @@ function apicall(audioBase64){
                     "languageCode":"en"
                     }
             }
-        },
+        }),
         headers:{
             "Content-Type": "application/json",
             "Authorization":"Bearer "+access_token
@@ -139,6 +139,6 @@ function apicall(audioBase64){
     }).done(function(data){
         console.log(data);
     }).fail(function(err){
-        console.log(err);
+        console.log(err.responseJSON);
     })
 }
