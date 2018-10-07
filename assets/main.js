@@ -127,11 +127,10 @@ function apicall(audioBase64){
                 "audioConfig":{
                     "languageCode":"en"
                 }
-//                text:{
-//                    "text":"high temperature",
-//                    "languageCode":"en"
-//                    }
-            }
+            },
+            outputAudioConfig' : {
+                'audioEncoding': 'OUTPUT_AUDIO_ENCODING_LINEAR_16'
+            },
         }),
         headers:{
             "Content-Type": "application/json",
