@@ -112,7 +112,8 @@ function getData(audioFile, callback) {
 var sessionId="3be65f50329c7e42aca841b19c3fcb0d";
 var projectId="anu-bknhvv";
 var access_token="ya29.GlsvBm4HXQtveCm2fuSDt-nPoMSzQw9oqSCz54CiWlJXWH-gN_C7J0CQgaL6itErjxhj_9QjCfFk8z-IDMu-EgkVTwghuayK3HaHZPLmK6bf5HnUJVDOIbj4IBQt";
-var key="0I1XmKPXQa-YFNT9VVOpSUSC";
+access_token="c3f097f6aba64be1b2917f24c02e5368";
+var key="S9jz2U8XatHtHIDMnL_nhSod";
 
 function makeApiCall(audioBase64){
     console.log("making api call")
