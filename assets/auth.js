@@ -17,7 +17,8 @@ var conifg={
           gapi.auth2.getAuthInstance()
               .isSignedIn
               .listen(updateSigninStatus);
-            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
+            
+//            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
         });
       }
 
@@ -37,7 +38,7 @@ var conifg={
 
       function makeApiCall() {
         // Make an API call to the People API, and print the user's given name.
-        gapi.client.people.people.get({
+        gapi.client.people.get({
           'resourceName': 'people/me',
           'requestMask.includeField': 'person.names'
         }).then(function(response) {
