@@ -128,9 +128,9 @@ function apicall(audioBase64){
                     "languageCode":"en"
                 }
             },
-            outputAudioConfig' : {
+            outputAudioConfig :{
                 'audioEncoding': 'OUTPUT_AUDIO_ENCODING_LINEAR_16'
-            },
+            }
         }),
         headers:{
             "Content-Type": "application/json",
