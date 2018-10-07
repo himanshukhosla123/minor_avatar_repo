@@ -1,49 +1,58 @@
+// Initialize Firebase
 var access_token="";
+var config = {
+    apiKey: "AIzaSyBlryrKX-6q-Rx-_xg1-U8IXd-7WkWbN6A",
+    authDomain: "anu-bknhvv.firebaseapp.com",
+    databaseURL: "https://anu-bknhvv.firebaseio.com",
+    projectId: "anu-bknhvv",
+    storageBucket: "anu-bknhvv.appspot.com",
+    messagingSenderId: "664668571146"
+  };
+  firebase.initializeApp(config);
+var provider = new firebase.auth.GoogleAuthProvider();        
 
-function handleClientLoad() {
-        gapi.load('client:auth2', initClient);
+$(document).ready(function(){
+  
+firebase.auth().onAuthStateChanged(function(user) {
+      if (user){
+        var displayName = user.displayName;
+        var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var isAnonymous = user.isAnonymous;
+        uid = user.uid;
+        var providerData = user.providerData;
+         console.log(user);
+}});
+    
+});
+    
+function handleSignInClick(){
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+  // This gives you a Google Access Token. You can use it to access the Google API.
+  var token = result.credential.accessToken;
+  // The signed-in user info.
+        access_token=token;
+  var user = result.user;
+        console.log(result);
+  // ...
+}).catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+  // The email of the user's account used.
+  var email = error.email;
+  // The firebase.auth.AuthCredential type that was used.
+  var credential = error.credential;
+  // ...
+        console.log(error);
+});
+}    
+        
+function handleSignOutClick(){
+    firebase.auth().signOut().then(function() {
+  // Sign-out successful.
+}).catch(function(error) {
+  // An error happened.
+});
 }
-
-var conifg={
-            apiKey: 'AIzaSyA5E0XSqyaQsoj2IuAjDIGDbhZCKL5Atqw',
-//            discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
-            clientId: '727213410009-7s91hsq2089f656b19iik147apeplq9q.apps.googleusercontent.com',
-            scope: 'profile'
-        };
-
-      function initClient() {
-        gapi.client.init(conifg).then(function (response) {
-            console.log(response);
-          gapi.auth2.getAuthInstance()
-              .isSignedIn
-              .listen(updateSigninStatus);
-            
-//            updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-        });
-      }
-
-      function updateSigninStatus(isSignedIn) {
-        if (isSignedIn) {
-          makeApiCall();
-        }
-      }
-
-      function handleSignInClick(event) {
-        gapi.auth2.getAuthInstance().signIn();
-      }
-
-      function handleSignOutClick(event) {
-        gapi.auth2.getAuthInstance().signOut();
-      }
-
-      function makeApiCall() {
-        // Make an API call to the People API, and print the user's given name.
-        gapi.client.people.get({
-          'resourceName': 'people/me',
-          'requestMask.includeField': 'person.names'
-        }).then(function(response) {
-          console.log('Hello, ' + response.result.names[0].givenName);
-        }, function(reason) {
-          console.log('Error: ' + reason.result.error.message);
-        });
-      }
