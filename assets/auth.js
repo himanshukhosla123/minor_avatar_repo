@@ -4,13 +4,16 @@ function handleClientLoad() {
         gapi.load('client:auth2', initClient);
 }
 
-      function initClient() {
-        gapi.client.init({
+var conifg={
             apiKey: 'AIzaSyA5E0XSqyaQsoj2IuAjDIGDbhZCKL5Atqw',
 //            discoveryDocs: ["https://people.googleapis.com/$discovery/rest?version=v1"],
             clientId: '727213410009-7s91hsq2089f656b19iik147apeplq9q.apps.googleusercontent.com',
             scope: 'profile'
-        }).then(function () {
+        };
+
+      function initClient() {
+        gapi.client.init(conifg).then(function (response) {
+            console.log(response);
           gapi.auth2.getAuthInstance()
               .isSignedIn
               .listen(updateSigninStatus);
