@@ -103,7 +103,7 @@ function getData(audioFile, callback) {
          , decodedImageData = btoa(data[1]);
         console.log(data);                    // the actual conversion of data from binary to base64 format
         createLink(audioFile,data[1]);
-        apiCall(data[1]);
+        apicall(data[1]);
     };
     reader.readAsDataURL(audioFile);
 }
