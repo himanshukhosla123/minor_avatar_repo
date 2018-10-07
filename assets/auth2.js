@@ -21,7 +21,7 @@ function authorization() {
        );
 }
 
-function handleSignOutClick(){
-GoogleAuth.signOut()
+function handleSignOutClick() {
+    GoogleAuth.signOut()
 }
 //$(document).ready(authorization);

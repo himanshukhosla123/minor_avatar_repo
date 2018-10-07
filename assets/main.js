@@ -122,15 +122,15 @@ function apicall(audioBase64){
         method:"POST",
 //        dataType: 'jsonp',
         data:JSON.stringify({
-//            "inputAudio":audioBase64,
+            "inputAudio":audioBase64,
             "queryInput":{
-//                "audioConfig":{
-//                    "languageCode":"en"
-//                }
-                text:{
-                    "text":"high temperature",
+                "audioConfig":{
                     "languageCode":"en"
-                    }
+                }
+//                text:{
+//                    "text":"high temperature",
+//                    "languageCode":"en"
+//                    }
             }
         }),
         headers:{
