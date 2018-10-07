@@ -15,10 +15,13 @@ function authorization() {
                 console.log(authResult);
                 access_token=authResult.access_token;
             } else {
-//              window.alert('Auth was not successful');
+              window.alert('Auth was not successful');
             }
           }
        );
 }
 
+function handleSignOutClick(){
+GoogleAuth.signOut()
+}
 //$(document).ready(authorization);
