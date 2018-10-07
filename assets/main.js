@@ -118,7 +118,7 @@ var key="TvG1PDNL8NZw-yK_Cs1UUpCl";
 function makeApiCall(audioBase64){
     console.log("making api call")
     $.ajax({
-        url:`https://dialogflow.googleapis.com/v2/session=projects/${projectId}/agent/sessions/${sessionId}:detectIntent?key=${key}&alt=json`,
+        url:"https://dialogflow.googleapis.com/v2/session=projects/"+projectId+"/agent/sessions/"+sessionId+":detectIntent?key="+key+"&alt=json",
         method:"POST",
 //        dataType: 'jsonp',
         data:{
@@ -132,9 +132,8 @@ function makeApiCall(audioBase64){
             }
         },
         headers:{
-            
             "Content-Type": "application/json",
-            "Authorization":`Bearer ${access_token}`
+            "Authorization":"Bearer "+access_token
         }
     }).done(function(data){
         console.log(data);
