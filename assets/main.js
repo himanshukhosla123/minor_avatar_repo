@@ -116,7 +116,7 @@ access_token="c3f097f6aba64be1b2917f24c02e5368";
 access_token="ya29.GlwvBl4ikMI1-OVa0L0T3ovfT4wq5xc5q142Hg0FqM5BHqVT0Vl0jw3xxcI6wxbX8R6FTu7VkdYQefWQyq9UuBNwUjhlRs9OJNdHUMthl1GRWvpu7xZ4MTAU-lFL2Q";
 var key="TvG1PDNL8NZw-yK_Cs1UUpCl";
 
-function Apicall(audioBase64){
+function apicall(audioBase64){
     console.log("making api call")
     $.ajax({
         url:"https://dialogflow.googleapis.com/v2/projects/"+projectId+"/agent/sessions/"+sessionId+":detectIntent?key="+key+"&alt=json",
