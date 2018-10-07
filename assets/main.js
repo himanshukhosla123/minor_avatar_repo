@@ -118,8 +118,9 @@ var key="S9jz2U8XatHtHIDMnL_nhSod";
 function makeApiCall(audioBase64){
     console.log("making api call")
     $.ajax({
-        url:`https://dialogflow.googleapis.com/v2beta1/{session=projects/${projectId}/agent/sessions/${sessionId}}:detectIntent?key=${key}`,
+        url:`https://dialogflow.googleapis.com/v2/session=projects/${projectId}/agent/sessions/${sessionId}:detectIntent?key=${key}&alt=json`,
         method:"POST",
+            dataType: 'jsonp',
         data:{
             "inputAudio":audioBase64,
             "queryInput":{
