@@ -21,4 +21,4 @@ function authorization() {
        );
 }
 
-$(document).ready(authorization);
+//$(document).ready(authorization);
