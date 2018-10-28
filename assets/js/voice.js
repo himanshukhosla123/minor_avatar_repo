@@ -23,7 +23,8 @@ $(document).ready(function(){
     {
         localStorage.setItem("acs",tokenDetected);
         token=tokenDetected;
-        generate("Hi Himanshu Khosla");
+        // authorization();
+        // generate("Hi Himanshu Khosla");
         getGenerated();
     }
     else {
@@ -55,7 +56,11 @@ function generate(text) {
                 text: text
             })
         }).done(function(response){
-             console.log(response)
+            console.log(response);
+            let audio=document.createElement("audio");
+            audio.pause();
+            audio.src = URL.createObjectURL(response);
+            audio.play();
          })
         .fail(function(error){
              console.log(error)
@@ -69,7 +74,7 @@ function getGenerated() {
             url: `https://avatar.lyrebird.ai/api/v0/generated`,
             headers: { 'Authorization': 'Bearer ' + token }
         }).done(function(response){
-            console.log(response.data.results)
+            console.log(response);
         })
         .fail(function(error){
             console.log(error)

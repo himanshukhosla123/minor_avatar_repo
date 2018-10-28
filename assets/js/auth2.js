@@ -18,7 +18,7 @@ function authorization() {
               window.alert('Auth was not successful');
             }
           }
-       );
+  );
 }
 
 function handleSignOutClick() {
