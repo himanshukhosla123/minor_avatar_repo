@@ -23,7 +23,7 @@ $(document).ready(function(){
     {
         localStorage.setItem("acs",tokenDetected);
         token=tokenDetected;
-        // authorization();
+        authorization();
         // generate("Hi Himanshu Khosla");
         getGenerated();
     }
