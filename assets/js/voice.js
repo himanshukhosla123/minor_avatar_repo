@@ -60,8 +60,20 @@ function generate(text) {
             console.log(response);
             window.q=response;
             let audio=document.createElement("audio");
-            // audio.pause();
-            audio.src = URL.createObjectURL(response);
+            try{
+                var len = response.length;
+                var buf = new ArrayBuffer(len);
+                var view = new Uint8Array(buf);
+                for (var i = 0; i < len; i++) {
+                  view[i] = wavString.charCodeAt(i) & 0xff;
+                }
+                var blob = new Blob([view], {type: "audio/x-wav"});
+                audio.src=URL.createObjectURL(blob);
+                audio.play();
+            }
+            catch(e){
+                alert("Error in generating audio");
+            }
             audio.play();
          })
         .fail(function(error){
