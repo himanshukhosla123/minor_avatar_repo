@@ -4,7 +4,6 @@ var clientId = "1CCXLFRGtX1UArRYz9cCOH5OYOK";
 var clientSecret = "$2a$10$RavlUyxmZ1D4vEdfzS1k0uBksTKTRTv78tOw3fldQEsTD42pTqlZG";
 var encodedUrl="https%3A%2F%2Fhimanshukhosla123.github.io%2Fminor_avatar_repo%2F";
 var token=localStorage.getItem("acs");
-//https://himanshukhosla123.github.io/minor_avatar_repo/#access_token=oauth_1CCezTPFG1CSY8hmxxm61NkP9y5&token_type=bearer&state=9818478695
 var code="9818478695";
 
 function voiceAuth(){
@@ -12,19 +11,23 @@ function voiceAuth(){
       getToken();
     }
     else{
-        
+        generate("Hi Himanshu Khosla");
     }
 }
 
 $(document).ready(function(){
     console.log(localStorage.getItem("acs"));
-    console.log(extractAccessToken(location.href));
-    if(extractAccessToken(window.href));
+    var tokenDetected=extractAccessToken(location.href);
+    console.log(tokenDetected);
+    if(tokenDetected)
     {
-        localStorage.setItem("acs",extractAccessToken(window.href));
-        token=extractAccessToken(window.href);
+        localStorage.setItem("acs",tokenDetected);
+        token=tokenDetected;
         generate("Hi Himanshu Khosla");
         getGenerated();
+    }
+    else {
+        getToken();
     }
 });
 
