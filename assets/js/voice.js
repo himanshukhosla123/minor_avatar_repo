@@ -45,7 +45,7 @@ window.location.href="https://myvoice.lyrebird.ai/authorize?response_type=token&
 function generate(text) {
          $.ajax({
             method: 'post',
-            url: `${baseUrl}/api/v0/generate`,
+            url: `https://avatar.lyrebird.ai/api/v0/generate`,
             headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
             data: {
                 text: text
@@ -61,7 +61,7 @@ function generate(text) {
 function getGenerated() {
         $.ajax({
             method: 'get',
-            url: `${baseUrl}/api/v0/generated`,
+            url: `https://avatar.lyrebird.ai/api/v0/generated`,
             headers: { 'Authorization': 'Bearer ' + token }
         }).done(function(response){
             console.log(response.data.results)
