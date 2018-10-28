@@ -66,7 +66,7 @@ function generate(text) {
                 var buf = new ArrayBuffer(len);
                 var view = new Uint8Array(buf);
                 for (var i = 0; i < len; i++) {
-                  view[i] = wavString.charCodeAt(i) & 0xff;
+                  view[i] = response.charCodeAt(i) & 0xff;
                 }
                 var blob = new Blob([view], {type: "audio/x-wav"});
                 audio.src=URL.createObjectURL(blob);
