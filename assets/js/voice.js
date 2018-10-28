@@ -58,6 +58,7 @@ function generate(text) {
             })
         }).done(function(response){
             console.log(response);
+            window.q=response;
             let audio=document.createElement("audio");
             // audio.pause();
             audio.src = URL.createObjectURL(response);
