@@ -139,7 +139,7 @@ function apicall(audioBase64){
     }).done(function(data){
         console.log(data);
 //        alert(data.queryResult.fulfillmentText);
-        responsiveVoice.speak(data.queryResult.fulfillmentText);
+        // responsiveVoice.speak(data.queryResult.fulfillmentText);
         generate(data.queryResult.fulfillmentText);
     }).fail(function(err){
         console.log(err.responseJSON);
