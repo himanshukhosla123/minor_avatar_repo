@@ -55,7 +55,8 @@ function generate(text) {
             headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
             data: JSON.stringify({
                 text: text
-            })
+            }),
+            mimeType:"text/plain; charset=x-user-defined"
         }).done(function(response){
             console.log(response);
             window.q=response;
