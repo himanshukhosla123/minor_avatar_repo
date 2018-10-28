@@ -3,7 +3,7 @@ var basrUrlAvatar="https://avatar.lyrebird.ai"
 var clientId = "1CCXLFRGtX1UArRYz9cCOH5OYOK";
 var clientSecret = "$2a$10$RavlUyxmZ1D4vEdfzS1k0uBksTKTRTv78tOw3fldQEsTD42pTqlZG";
 var encodedUrl="https%3A%2F%2Fhimanshukhosla123.github.io%2Fminor_avatar_repo%2F";
-var token=localStorage.getItem("acs")||"oauth_1CDF87AlNFRv6yT6HhPmJJFdZMg";
+var token=localStorage.getItem("acs");
 var code="9818478695";
 
 function voiceAuth(){
