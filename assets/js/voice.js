@@ -51,9 +51,9 @@ function generate(text) {
             method: 'post',
             url: `https://avatar.lyrebird.ai/api/v0/generate`,
             headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
-            data: {
+            data: JSON.stringify({
                 text: text
-            }
+            })
         }).done(function(response){
              console.log(response)
          })
