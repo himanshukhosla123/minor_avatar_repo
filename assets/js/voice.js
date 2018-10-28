@@ -46,6 +46,7 @@ window.location.href="https://myvoice.lyrebird.ai/authorize?response_type=token&
 
 
 function generate(text) {
+        if(token && token!="null")
          $.ajax({
             method: 'post',
             url: `https://avatar.lyrebird.ai/api/v0/generate`,
@@ -62,6 +63,7 @@ function generate(text) {
 }
 
 function getGenerated() {
+        if(token && token!="null")
         $.ajax({
             method: 'get',
             url: `https://avatar.lyrebird.ai/api/v0/generated`,
