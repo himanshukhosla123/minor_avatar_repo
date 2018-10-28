@@ -50,6 +50,7 @@ function generate(text) {
         if(token && token!="null")
          $.ajax({
             method: 'post',
+            responseType: 'blob',
             url: `https://avatar.lyrebird.ai/api/v0/generate`,
             headers: { 'Authorization': 'Bearer ' + token, 'Content-Type': 'application/json' },
             data: JSON.stringify({
@@ -58,7 +59,7 @@ function generate(text) {
         }).done(function(response){
             console.log(response);
             let audio=document.createElement("audio");
-            audio.pause();
+            // audio.pause();
             audio.src = URL.createObjectURL(response);
             audio.play();
          })
